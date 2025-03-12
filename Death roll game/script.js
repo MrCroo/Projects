@@ -3,28 +3,31 @@
 const p1Num = document.querySelector(".player-roll-1");
 const p2Num = document.querySelector(".player-roll-2");
 
-let p1 = (p1Num.textContent = 0);
-let p2 = (p2Num.textContent = 0);
+let numberSaver = 0;
+p1Num.textContent = 0;
+p2Num.textContent = 0;
 let firstPlayerTurn = true;
 
 const randomNumber = function (max, min) {
   return Math.trunc(Math.random() * (max - min + 1) + min);
 };
 
-p1Num.addEventListener("click", function () {
-  if (firstPlayerTurn) {
-    p1 = p1Num.textContent = randomNumber(100, 1);
-    firstPlayerTurn = !firstPlayerTurn;
-  } else {
-    p1 = p1Num.textContent = randomNumber(p2, 1);
-  }
-});
+const eventHandler = function () {
+  const randomTemp = randomNumber(100, 1);
+  const randomSaver = randomNumber(numberSaver, 1);
 
-p2Num.addEventListener("click", function () {
-  if (firstPlayerTurn) {
-    p2 = p2Num.textContent = randomNumber(100, 1);
+  if (firstPlayerTurn && randomTemp !== 1) {
+    numberSaver = this.textContent = randomTemp;
     firstPlayerTurn = !firstPlayerTurn;
+  } else if (randomSaver !== 1) {
+    numberSaver = this.textContent = randomNumber(numberSaver, 1);
   } else {
-    p2 = p2Num.textContent = randomNumber(p1, 1);
+    console.log(this.closest(".player-box" > ".player-name"));
+    this.textContent === "1" &&
+      console.log(`${this.closest(".player-name")} Win`);
   }
-});
+  console.log(p1Num.textContent, p2Num.textContent);
+};
+
+p1Num.addEventListener("click", eventHandler.bind(p1Num));
+p2Num.addEventListener("click", eventHandler.bind(p2Num));

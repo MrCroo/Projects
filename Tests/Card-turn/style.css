@@ -1,0 +1,88 @@
+:root {
+  --color-lightest-blue: #e7eaf6;
+  --color-light-blue: #a2a8d3;
+  --color-dark-blue: #38598b;
+  --color-darker-blue: #113f67;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(97, 97, 97);
+  font-family: sans-serif;
+  color: var(--color-lightest-blue);
+}
+
+.front,
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  border-radius: 4px;
+  left: 100px;
+  top: 100px;
+  height: 25rem;
+  width: 20rem;
+  background-image: url("StockCake-Morning\ Coffee\ Routine_1741716428.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+  transition: all 2s;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.card:hover .back {
+  transform: rotateY(0deg);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .front {
+  transform: rotateY(-180deg);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-inside {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  padding: 1rem;
+  background: linear-gradient(
+    hsl(0, 0%, 0%, 0),
+    hsl(0, 0%, 0%, 0.3) 20%,
+    60%,
+    hsla(208, 72%, 20%, 0.7)
+  );
+}
+
+.header {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  color: var(#ffffff);
+}
+
+.description {
+  max-width: 35ch;
+  padding-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 3px;
+  border: 0;
+  background-color: transparent;
+  font-weight: 500;
+  color: var(--color-lightest-blue);
+}

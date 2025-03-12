@@ -49,6 +49,8 @@ body {
 
 .player-roll {
   background-color: aliceblue;
+  font-size: 3rem;
+  font-weight: 300;
   padding: 2rem;
   border-radius: 2rem;
 }
