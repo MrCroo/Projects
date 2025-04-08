@@ -4,6 +4,7 @@ const inputText = document.getElementById("text");
 const inputBtn = document.getElementById("button");
 const body = document.getElementById("body");
 const flex = document.querySelector(".container");
+const tbody = document.getElementById("tbody");
 
 const container = new Array();
 
@@ -21,15 +22,13 @@ const creatingTable = function () {
         </tbody>
         <tfoot>
         <tr>
-        <th scope="row" colspan="2">Separataor</th>
+        <th scope="row" colspan="2">Separator</th>
         </tr>
         </tfoot>
         </table>
         `
   );
 };
-creatingTable();
-const tbody = document.getElementById("tbody");
 
 const refreshTable = function () {
   tbody.textContent = "";
@@ -37,17 +36,17 @@ const refreshTable = function () {
     tbody.insertAdjacentHTML(
       "afterbegin",
       `
-            <tr id="${"d" + i}">
-            <th class="checkbox-box">
-            <label class="checker">
-            <input class="checkbox" type="checkbox" id="checkbox${i}" />
-            <span class="checkmark"></span>
-            </label>
-            </th>
-            <td>${item}</td>
-            <td><button class="delete" type="button">X</button></td>
-            </tr>
-            `
+      <tr id="${"d" + i}">
+      <th class="checkbox-box">
+      <label class="checker">
+      <input class="checkbox" type="checkbox" id="checkbox${i}" />
+      <span class="checkmark"></span>
+      </label>
+      </th>
+      <td>${item}</td>
+      <td><button class="delete" type="button">X</button></td>
+      </tr>
+      `
     );
     let b = document
       .querySelector(".delete")
@@ -61,8 +60,7 @@ const refreshTable = function () {
 inputBtn.addEventListener("click", function (e) {
   e.preventDefault();
   container.push(inputText.value);
-  console.log(inputText.value);
   refreshTable();
-  console.log(container);
   inputText.value = "";
 });
+creatingTable();

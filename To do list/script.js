@@ -20,8 +20,6 @@ const creatingTable = function () {
         `
   );
 };
-creatingTable();
-const tbody = document.getElementById("tbody");
 
 const refreshTable = function () {
   tbody.textContent = "";
@@ -29,19 +27,19 @@ const refreshTable = function () {
     tbody.insertAdjacentHTML(
       "afterbegin",
       ` 
-            <div class="row" id="${"d" + i}">
-            <div class="checkbox-box">
-            <label class="checker">
-            <input class="checkbox" type="checkbox" id="checkbox${i}" />
-            <span class="checkmark"></span>
-            </label>
-            </div>
-            <span class="todo-text" >${item}</span>
-            <div class="list-buttons">
-            <button class="delete" type="button">X</button>
-            </div>
-            </div>
-            `
+      <div class="row" id="${"d" + i}">
+      <div class="checkbox-box">
+      <label class="checker">
+      <input class="checkbox" type="checkbox" id="checkbox${i}" />
+      <span class="checkmark"></span>
+      </label>
+      </div>
+      <span class="todo-text" >${item}</span>
+      <div class="list-buttons">
+      <button class="delete" type="button">X</button>
+      </div>
+      </div>
+      `
     );
     let b = document
       .querySelector(".delete")
@@ -55,8 +53,8 @@ const refreshTable = function () {
 inputBtn.addEventListener("click", function (e) {
   e.preventDefault();
   container.push(inputText.value);
-  console.log(inputText.value);
   refreshTable();
-  console.log(container);
   inputText.value = "";
 });
+
+creatingTable();
